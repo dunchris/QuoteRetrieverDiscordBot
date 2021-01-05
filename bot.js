@@ -1,4 +1,3 @@
-const axios = require('axios').default;
 var Discord = require('discord.io');
 var logger = require('winston');
 var scraper = require('./scraper/pl-scraper.js');
