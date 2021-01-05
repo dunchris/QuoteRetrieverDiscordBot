@@ -20,11 +20,8 @@ function quote_today(url, callback) {
             {
                 if ('1' in tbl[i])
                 {
-                    console.log("KEY EXISTS");
                     if (tbl[i]['1'] !== '')
                     {
-                        console.log("VALUE EXISTS");
-                        
                         valFound = true
                         break;
                     }

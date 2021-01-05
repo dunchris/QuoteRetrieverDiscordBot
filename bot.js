@@ -1,9 +1,8 @@
 const axios = require('axios').default;
 var Discord = require('discord.io');
 var logger = require('winston');
-var auth = require('./auth.json');
 var scraper = require('./scraper/pl-scraper.js');
-
+require('dotenv').config()
 const quote_url = "https://www.wow4u.com/quote-of-the-day/";
 // Configure logger settings
 
@@ -16,7 +15,7 @@ logger.add(new logger.transports.Console, {
 logger.level = 'debug';
 // Initialize Discord Bot
 var bot = new Discord.Client({
-   token: auth.token,
+   token: process.env.BOT_TOKEN,
    autorun: true
 });
 
@@ -25,7 +24,7 @@ var bot = new Discord.Client({
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
+    logger.info(bot.username);
 });
 bot.on('message', async function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
