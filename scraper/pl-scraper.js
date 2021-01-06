@@ -41,9 +41,9 @@ function quote_today(url, callback) {
         {
             var first_two_quotes = String(tableData[h][i]['1']).split(/[\n|]+/,40);
             first_two_quotes = first_two_quotes.filter(value => /\S+/.test(value));
+            console.log(first_two_quotes)
             var d = new Date();
-            var reg = new RegExp(".*" + months[d.getMonth()] + " *0*" + d.getDate().toString() + ".* " + d.getFullYear().toString() + ".*");
-            //console.log(first_two_quotes);
+            var reg = new RegExp(".*" + months[d.getMonth()] + ".*" + d.getDate().toString() + ".* " + d.getFullYear().toString() + ".*");
             const match = first_two_quotes.find(value => reg.test(value));
             const ind = first_two_quotes.indexOf(match);
             if (ind < 0)
