@@ -44,8 +44,10 @@ function quote_today(url, callback) {
             console.log(first_two_quotes)
             var d = new Date();
             var reg = new RegExp(".*" + months[d.getMonth()] + ".*" + d.getDate().toString() + ".* " + d.getFullYear().toString() + ".*");
+            console.log(reg)
             const match = first_two_quotes.find(value => reg.test(value));
             const ind = first_two_quotes.indexOf(match);
+            console.log(ind)
             if (ind < 0)
                 quote = "No quote for today.";
             else
