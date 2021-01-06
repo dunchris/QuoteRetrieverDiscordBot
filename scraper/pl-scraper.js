@@ -49,7 +49,8 @@ function quote_today(url, callback) {
             const ind = first_two_quotes.indexOf(match);
             console.log(ind)
             if (ind < 0)
-                quote = "No quote for today.";
+                quote = "No quote for " + months[d.getMonth()] + " " + d.getDate().toString() + " " + d.getFullYear().toString() + " yet.\n"
+                        + "Check back later.";
             else
                 quote = match + "\n\n\"" + first_two_quotes[ind+1].trim() + "\"\n\n-- *" + first_two_quotes[ind+2].trim() + "*";
         }
