@@ -45,13 +45,14 @@ function quote_today(url, callback) {
             var d = new Date();
             let day = d.getDate();
             //8 hr diff
-            const hr_diff = 8
+            const hr_diff = 8;
             //if the day is one day ahead of america, then subtract one from the day
-            if (day - hr_diff < 0)
+            let am_time_diff = d.getHours() - hr_diff;
+            if (am_time_diff < 0)
                 day -= 1;
 
             var reg = new RegExp(".*" + months[d.getMonth()] + ".*" + day.toString() + ".* " + d.getFullYear().toString() + ".*");
-            console.log(d.getHours())
+            console.log(d.getHours());
             const match = first_two_quotes.find(value => reg.test(value));
             const ind = first_two_quotes.indexOf(match);
             if (ind < 0)
