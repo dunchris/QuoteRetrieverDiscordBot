@@ -43,11 +43,11 @@ function quote_today(url, callback) {
             first_two_quotes = first_two_quotes.filter(value => /\S+/.test(value));
             console.log(first_two_quotes)
             var d = new Date();
+
             var reg = new RegExp(".*" + months[d.getMonth()] + ".*" + d.getDate().toString() + ".* " + d.getFullYear().toString() + ".*");
-            console.log(reg)
+            console.log(d.getHours())
             const match = first_two_quotes.find(value => reg.test(value));
             const ind = first_two_quotes.indexOf(match);
-            console.log(ind)
             if (ind < 0)
                 quote = "No quote for " + months[d.getMonth()] + " " + d.getDate().toString() + " " + d.getFullYear().toString() + " yet.\n"
                         + "Check back later.";
