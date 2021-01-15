@@ -62,10 +62,10 @@ function quote_today(url, callback) {
             const match = first_two_quotes.find(value => reg.test(value));
             const ind = first_two_quotes.indexOf(match);
             if (ind < 0)
-                quote = "No quote for " + months[d.getMonth()] + " " + day.toString() + " " + d.getFullYear().toString() + " yet.\n"
+                quote = "No quote for " + months[d.getMonth()] + " " + day.toString() + " yet.\n"
                         + "Check back later.";
             else
-                quote = match + "\n\n\"" + first_two_quotes[ind+1].trim() + "\"\n\n-- *" + first_two_quotes[ind+2].trim() + "*";
+                quote = match + "\n\n\"" + first_two_quotes[ind+1].trim() + "\"\n\n*-- " + first_two_quotes[ind+2].trim() + "*";
         }
         callback(quote);
     });
