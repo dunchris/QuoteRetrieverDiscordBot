@@ -55,13 +55,14 @@ function quote_today(url, callback) {
             }
             console.log("Day: " + day.toString())
             
-            var reg = new RegExp(".*" + months[d.getMonth()] + ".*" + day.toString() + ".* " + d.getFullYear().toString() + ".*");
+            var reg = new RegExp(".*" + months[d.getMonth()] + ".*" + day.toString() + ".*");
+            console.log(".*" + months[d.getMonth()] + ".*" + day.toString() + ".*");
             console.log("Current Time: " + d.getHours().toString());
             console.log("American Time: " + am_time_diff.toString());
             const match = first_two_quotes.find(value => reg.test(value));
             const ind = first_two_quotes.indexOf(match);
             if (ind < 0)
-                quote = "No quote for " + months[d.getMonth()] + " " + d.getDate().toString() + " " + d.getFullYear().toString() + " yet.\n"
+                quote = "No quote for " + months[d.getMonth()] + " " + day.toString() + " " + d.getFullYear().toString() + " yet.\n"
                         + "Check back later.";
             else
                 quote = match + "\n\n\"" + first_two_quotes[ind+1].trim() + "\"\n\n-- *" + first_two_quotes[ind+2].trim() + "*";
