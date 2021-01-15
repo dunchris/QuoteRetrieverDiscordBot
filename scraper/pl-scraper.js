@@ -48,11 +48,16 @@ function quote_today(url, callback) {
             const hr_diff = 8;
             //if the day is one day ahead of america, then subtract one from the day
             let am_time_diff = d.getHours() - hr_diff;
+            
             if (am_time_diff < 0)
+            {
                 day -= 1;
-
+            }
+            console.log("Day: " + day.toString())
+            
             var reg = new RegExp(".*" + months[d.getMonth()] + ".*" + day.toString() + ".* " + d.getFullYear().toString() + ".*");
-            console.log(d.getHours());
+            console.log("Current Time: " + d.getHours().toString());
+            console.log("American Time: " + am_time_diff.toString());
             const match = first_two_quotes.find(value => reg.test(value));
             const ind = first_two_quotes.indexOf(match);
             if (ind < 0)
